@@ -21,15 +21,24 @@ export default function Home() {
             <ContentCarousel />
           </div>
           <div>
-            <h1 className="text-2xl font-bold mb-4">
-              {" "}
-              Por favor Faça Login primeiro!
-            </h1>
-            <h1 className="text-2xl font-bold mb-4">
-              {" "}
-              Olá {usuario.name} deseja cadastrar algum jogo?{" "}
-            </h1>
-            <Link href="/cadastroGame">Ir para NOVO JOGO!</Link>
+            {usuario.name === "" ? (
+              <h1 className="text-2xl font-bold mb-4">
+                {" "}
+                Por favor Faça Login primeiro!
+              </h1>
+            ) : (
+              <div>
+                <h1 className="text-2xl font-bold mb-4">
+                  {" "}
+                  Olá {usuario.name} deseja cadastrar algum jogo?{" "}
+                </h1>
+                <Link
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  href="/cadastroGame">
+                  NOVO JOGO!
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -47,7 +47,9 @@ export default function Form() {
     <>
       <div className="min-h-screen flex flex-row items-center justify-center relative z-10 0">
         <h2>OLA {usuario.name}</h2>
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-stone-800 rounded shadow-md max-w-md mx-auto p-6">
           <div className="relative z-0 w-full mb-5 group">
             <input
               value={game.title}
@@ -158,8 +160,7 @@ export default function Form() {
           </div>
           <button
             type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
+            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Enviar
           </button>
         </form>
