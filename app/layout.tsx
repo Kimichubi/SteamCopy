@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import DropDown from "./components/Dropdown";
 import Provider from "./context/UserContext";
+import InfoProvider from "./context/NoticiaContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,7 +35,9 @@ export default function RootLayout({
             <span>Idioma</span>
           </div>
         </header>
-        <Provider>{children}</Provider>
+        <Provider>
+          <InfoProvider>{children}</InfoProvider>
+        </Provider>
       </body>
     </html>
   );

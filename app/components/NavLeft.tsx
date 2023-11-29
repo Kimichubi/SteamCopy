@@ -1,4 +1,8 @@
+import useNotice from "../hooks/useNotice";
+
 export default function NavLeft() {
+  //@ts-ignore
+  const { notices } = useNotice();
   return (
     <>
       <div className="flex flex-col items-center">
@@ -17,10 +21,10 @@ export default function NavLeft() {
         </div>
         <div className="flex flex-col justfy-center items-center gap-4 m-4 bg-gradient-to-r from-cyan-500 to-blue-500">
           <div className="py-1 flex justfy-center items-center">
-            <h1>Vistos Recentemente</h1>
+            <h1>Criado Recentemente</h1>
           </div>
           <div className="py-1 flex justfy-center items-center">
-            <p>Grand Theft Auto V</p>
+            <p>{notices[0].title}</p>
           </div>
         </div>
       </div>

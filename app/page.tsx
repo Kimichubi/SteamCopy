@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import ContentCarousel from "./components/ContentCarousel";
 import NavLeft from "./components/NavLeft";
 import NavTop from "./components/NavTop";
@@ -26,8 +27,9 @@ export default function Home() {
             </h1>
             <h1 className="text-2xl font-bold mb-4">
               {" "}
-              Olá {usuario.name} deseja cadastrar alguma notícia?{" "}
+              Olá {usuario.name} deseja cadastrar algum jogo?{" "}
             </h1>
+            <Link href="/cadastroGame">Ir para NOVO JOGO!</Link>
           </div>
         </div>
       </div>
