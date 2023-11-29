@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const InfoContext = createContext({});
 
@@ -6,8 +6,8 @@ export default function InfoProvider({ children }: { children: any }) {
   const [notices, setNotices] = useState(() => {
     const noticeValid = localStorage.getItem("notices");
     if (!noticeValid) return [];
-    const notices = JSON.parse(noticeValid);
-    return notices;
+    const parsedNotices = JSON.parse(noticeValid);
+    return parsedNotices;
   });
 
   const addNotice = (notice: any) => {
@@ -28,6 +28,16 @@ export default function InfoProvider({ children }: { children: any }) {
     });
   };
 
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Código que utiliza localStorage
+      const noticeValid = localStorage.getItem("notices");
+      if (!noticeValid) return;
+      const parsedNotices = JSON.parse(noticeValid);
+      setNotices(parsedNotices);
+    }
+  }, []);
+
   const valuesFuncs = {
     notices,
     addNotice,
@@ -35,10 +45,6 @@ export default function InfoProvider({ children }: { children: any }) {
   };
 
   return (
-    <>
-      <InfoContext.Provider value={valuesFuncs}>
-        {children}
-      </InfoContext.Provider>
-    </>
+    <InfoContext.Provider value={valuesFuncs}>{children}</InfoContext.Provider>
   );
 }
